@@ -6,5 +6,6 @@ Rails.application.routes.draw do
 
 
   get "/products" => "products#index"
-  
+  get "/a_product" => "products#show"
+
 end
