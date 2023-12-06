@@ -7,10 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
  product = Product.new(
-  name:"desk", 
-  price: 300, 
-  image_url:"https://www.ikea.com/us/en/images/products/micke-desk-black-brown__0735981_pe740299_s5.jpg", 
-  description:"perfect for studying"
+  name:"wood box",
+  price: 5,
+  image_url:"https://target.scene7.com/is/image/Target/GUEST_9ea0aa47-8c0e-41d3-a3a2-a30e5665b9a8?wid=488&hei=488&fmt=pjpeg",
+  description: "large size"
   )
-
   product.save
