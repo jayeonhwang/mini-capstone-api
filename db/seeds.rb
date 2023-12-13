@@ -6,10 +6,12 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
- product = Product.new(
-  name:"wood box",
-  price: 5,
-  image_url:"https://target.scene7.com/is/image/Target/GUEST_9ea0aa47-8c0e-41d3-a3a2-a30e5665b9a8?wid=488&hei=488&fmt=pjpeg",
-  description: "large size"
-  )
+products =Product.all
+products.each do |product|
+  product.inventory = rand(1..10)
   product.save
+end
+
+
+
+

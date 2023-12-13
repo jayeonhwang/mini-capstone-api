@@ -2,13 +2,10 @@
 
 one:
   name: MyString
-  price: 1
-  description: MyStringaaaaaaaaaaaa
-  supplier: one
-
+  phone_number: MyString
+  email: MyString
 
 two:
   name: MyString
-  price: 1
-  description: MyStringaaaaaaaaaaaaaa
-  supplier: one
+  phone_number: MyString
+  email: MyString

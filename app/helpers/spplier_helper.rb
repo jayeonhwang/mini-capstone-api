@@ -1,0 +1,2 @@
+module SpplierHelper
+end
