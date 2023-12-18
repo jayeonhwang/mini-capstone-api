@@ -36,9 +36,9 @@ class ProductsController < ApplicationController
     @product.name = params[:name] || @product.name
     @product.price = params[:price] || @product.price
     @product.description = params[:description] || @product.description
+    @product.supplier_id = params[:supplier_id] || @product.supplier_id
     
-  
-    if @product.saveexi
+    if @product.save
       params[:images].each do |image|
         image = Image.new(
           url: image,

@@ -40,4 +40,5 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     patch "/products/#{product.id}.json", params: { name: "" }
     assert_response 422
   end
+
 end
