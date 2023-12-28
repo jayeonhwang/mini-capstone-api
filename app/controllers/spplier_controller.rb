@@ -1,2 +1,0 @@
-class SpplierController < ApplicationController
-end
