@@ -1,5 +1,19 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user
 
+  def index
+    @orders = Order.where(user_id: current_user.id)
+    render :index
+  end
+  
+  def show
+    @order = Order.find_by(id: params[:id])
+    if current_user == @order.user_id
+      render :show
+    else
+      render json:{message:"you can't do this"}
+    end
+  
   def create
     if current_user
       @order = Order.new(
@@ -7,6 +21,7 @@ class OrdersController < ApplicationController
       product_id: params[:product_id],
       quantity: params[:quantity],
       )
+
       if @order.save
         render json:{message:"create order"}
       else
@@ -14,26 +29,10 @@ class OrdersController < ApplicationController
       end
 
     else
-      return render json:{message: 'please login'}
+      render json:{message: 'please login'}
     end
   end
 
-  def index
-    if current_user
-      @orders = Order.all
-      render :index
-    else
-      render json:{message:"Please login"}
-    end
-  end
-
-  def show
-    if current_user
-      @order = Order.find_by(id:params[:id])
-      render :show
-    else
-      render json:{message:"Please login"}
-    end
   end
 
 end
