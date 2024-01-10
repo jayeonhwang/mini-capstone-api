@@ -18,4 +18,11 @@ class CartedProductsController < ApplicationController
     render :show
   end
 
+  def destroy
+    @carted_product = CartedProduct.find_by(id: params[:id])
+    @carted_product.status = 'removed'
+    @carted_product.save
+    render json: {message: "item removed"}
+  end
+
 end
