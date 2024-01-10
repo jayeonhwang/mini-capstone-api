@@ -1,17 +1,6 @@
 class Order < ApplicationRecord
   belongs_to :user
-  belongs_to :product
-
-  def subtotal
-    product.price * quantity
-  end
-
- def tax
-  subtotal * 0.09
- end
-
- def total
-  subtotal + tax
- end
+  has_many :carted_products
+  has_many :products, through: :carted_products
 
 end

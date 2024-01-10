@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_admin, except:[:show, :index]
+  # before_action :authenticate_admin, except: [:show, :index]
 
   def index
     @products = Product.all 
@@ -39,10 +39,13 @@ class ProductsController < ApplicationController
     else 
       render json: {errors: @product.errors.full_messages}, status: :unprocessable_entity
     end
+
   end
+
   def destroy
     @product = Product.find_by(id: params[:id])
     @product.destroy
     render json: {message:"product destoryed"}
   end
+  
 end

@@ -13,26 +13,20 @@ class OrdersController < ApplicationController
     else
       render json:{message:"you can't do this"}
     end
+  end
+
   
   def create
-    if current_user
+    current_user
       @order = Order.new(
       user_id: current_user.id,
-      product_id: params[:product_id],
-      quantity: params[:quantity],
-      )
-
-      if @order.save
-        render json:{message:"create order"}
-      else
-        render json: { message: "error saving order", errors: @order.errors.full_messages }
-      end
-
-    else
-      render json:{message: 'please login'}
-    end
+      subtotal: product.price 
+      tax: 10,
+      total: 10 
+    )
+    render json:{message: "hello"}
+  
   end
 
-  end
 
 end
