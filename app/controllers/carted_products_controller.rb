@@ -12,7 +12,7 @@ class CartedProductsController < ApplicationController
       product_id: params[:product_id],
       quantity: params[:quantity],
       status: "carted",
-      order_id: null
+      order_id: nil
     )
     @carted_product.save
     render :show

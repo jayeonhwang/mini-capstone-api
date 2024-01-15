@@ -4,23 +4,25 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all 
     render template: "products/index"
-    pp current_user
   end
+  
   def show
     @product = Product.find_by(id:params[:id])
     render template: "products/show"
   end
 
   def create
+    supplier = Supplier.find_by(name: params[:supplier])
     @product = Product.new(
       name: params[:name],
       price: params[:price],
       description: params[:description],
       inventory: params[:inventory],
-      supplier_id: params[:supplier_id],
+      supplier_id: supplier.id,
     )
 
-    if @product.save
+    if @product.save!
+
      render template:"products/show"
     else
       render json: {errors: @product.errors.full_messages}, status: :unprocessable_entity
