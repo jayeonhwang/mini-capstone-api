@@ -8,11 +8,7 @@ class OrdersController < ApplicationController
   
   def show
     @order = Order.find_by(id: params[:id])
-    if current_user == @order.user_id
-      render :show
-    else
-      render json:{message:"you can't do this"}
-    end
+    render :show
   end
 
   

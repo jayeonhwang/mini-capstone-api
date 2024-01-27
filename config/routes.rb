@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   post"/users" => "users#create"
   post"/sessions" => "session#create"
   
-  get"/orders/:id" => "orders#show"
+  get "/orders/:id" => "orders#show"
   get "/orders" => "orders#index"
   post "/orders" => "orders#create"
 
